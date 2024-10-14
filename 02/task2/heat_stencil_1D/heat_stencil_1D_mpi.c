@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
     for (long long i = startIdx; i < endIdx; i++) {
       // center stays constant (the heat is still on)
       if (i == source_x) {
-        C[i - startIdx] = A[i];
+        C[i - startIdx] = B[i - startIdx];
         continue;
       }
 
@@ -123,8 +123,18 @@ int main(int argc, char **argv) {
       value_t tc = B[i - startIdx];
 
       // get temperatures of adjacent cells
-      value_t tl = (i == startIdx && rank > 0) ? leftNeighbour : B[i - 1- startIdx];
-      value_t tr = (i == endIdx - 1 && rank < numProcs - 1) ? rightNeighbour : B[i + 1 - startIdx];
+      value_t tl;
+      if (i == startIdx) {
+        tl = (rank > 0) ? leftNeighbour : tc;  
+      } else {
+          tl = B[i - 1- startIdx];  
+      }
+      value_t tr;
+      if (i == endIdx - 1) {
+          tr = (rank < numProcs - 1) ? rightNeighbour : tc;  
+      } else {
+          tr = B[i - startIdx + 1];  
+      }
 
       // compute new temperature at current position
       C[i - startIdx] = tc + 0.2 * (tl + tr + (-2 * tc));
