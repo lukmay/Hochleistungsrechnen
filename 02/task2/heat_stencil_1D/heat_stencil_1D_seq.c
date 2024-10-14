@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef double value_t;
 
@@ -10,9 +11,7 @@ typedef double value_t;
 typedef value_t *Vector;
 
 Vector createVector(int N);
-
 void releaseVector(Vector m);
-
 void printTemperature(Vector m, int N);
 
 // -- simulation code ---
@@ -26,8 +25,10 @@ int main(int argc, char **argv) {
   int T = N * 500;
   printf("Computing heat-distribution for room size N=%d for T=%d timesteps\n", N, T);
 
-  // ---------- setup ----------
+  // Time measurement variables
+  clock_t starttime, endtime;
 
+  // ---------- setup ----------
   // create a buffer for storing temperature fields
   Vector A = createVector(N);
 
@@ -45,9 +46,11 @@ int main(int argc, char **argv) {
   printf("\n");
 
   // ---------- compute ----------
-
   // create a second buffer for the computation
   Vector B = createVector(N);
+
+  // Start time measurement before computation begins
+  starttime = clock();
 
   // for each time step ..
   for (int t = 0; t < T; t++) {
@@ -83,6 +86,9 @@ int main(int argc, char **argv) {
     }
   }
 
+  // End time measurement after computation ends
+  endtime = clock();
+
   releaseVector(B);
 
   // ---------- check ----------
@@ -102,8 +108,11 @@ int main(int argc, char **argv) {
 
   printf("Verification: %s\n", (success) ? "OK" : "FAILED");
 
-  // ---------- cleanup ----------
+  // Calculate and print elapsed time
+  double time_spent = (double)(endtime - starttime) / CLOCKS_PER_SEC;
+  printf("Time taken: %f seconds\n", time_spent);
 
+  // ---------- cleanup ----------
   releaseVector(A);
 
   // done
