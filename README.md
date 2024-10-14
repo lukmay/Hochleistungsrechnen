@@ -1,0 +1,1 @@
+[Assignments & lecture slides](https://github.com/philippgs/uibk_hpc_24/tree/main)
