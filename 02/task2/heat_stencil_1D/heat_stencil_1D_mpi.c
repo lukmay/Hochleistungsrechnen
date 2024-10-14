@@ -90,26 +90,25 @@ int main(int argc, char **argv) {
   // for each time step ..
   for (int t = 0; t < T; t++) {
     // Exchange boundary values with neighboring processes
-    printf("[DEBUG] Rank %i started with timestep %i. \n", rank, t);
+    // printf("[DEBUG] Rank %i started with timestep %i. \n", rank, t);
     if ((rank > 0) & (rank < numProcs - 1)) {
-      printf("[DEBUG] Rank %i tries to send and receive right boundary element ... \n", rank);
+      // printf("[DEBUG] Rank %i tries to send and receive right boundary element ... \n", rank);
       MPI_Sendrecv(&B[0], 1, MPI_DOUBLE, rank - 1, 0, &rightNeighbour, 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      printf("[DEBUG] Rank %i send and received right boundary element. \n", rank);
-    }
-    if ((rank > 0) & (rank < numProcs - 1)) {
-      printf("[DEBUG] Rank %i tries to send and receive left boundary element ... \n", rank);
+      // printf("[DEBUG] Rank %i send and received right boundary element. \n", rank);
+
+      //printf("[DEBUG] Rank %i tries to send and receive left boundary element ... \n", rank);
       MPI_Sendrecv(&B[chunkSize - 1], 1, MPI_DOUBLE, rank + 1, 1, &leftNeighbour, 1, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      printf("[DEBUG] Rank %i send and received left boundary element. \n", rank);
+      //printf("[DEBUG] Rank %i send and received left boundary element. \n", rank);
     }
     if (rank == 0) {
-      printf("[DEBUG] Rank %i tries to receive right boundary element ... \n", rank);
+      //printf("[DEBUG] Rank %i tries to receive right boundary element ... \n", rank);
       MPI_Sendrecv(&B[chunkSize - 1], 1, MPI_DOUBLE, rank + 1, 1, &rightNeighbour, 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      printf("[DEBUG] Rank %i sent received right boundary element and sent left one. \n", rank);
+      // printf("[DEBUG] Rank %i sent received right boundary element and sent left one. \n", rank);
     }
     if (rank == numProcs - 1) {
-      printf("[DEBUG] Rank %i tries  to receive left boundary element ... \n", rank);
+      //printf("[DEBUG] Rank %i tries  to receive left boundary element ... \n", rank);
       MPI_Sendrecv(&B[0], 1, MPI_DOUBLE, rank - 1, 0, &leftNeighbour, 1, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      printf("[DEBUG] Rank %i received left boundary element and sent right one. \n", rank);
+      //printf("[DEBUG] Rank %i received left boundary element and sent right one. \n", rank);
     }
 
     // .. we propagate the temperature
@@ -135,17 +134,18 @@ int main(int argc, char **argv) {
     B = C;
     C = H;
 
-    if (rank == 0) {
-      // show intermediate step
-      if (t % 100 == 0) {
-        MPI_Gather(B, chunkSize, MPI_DOUBLE, A, chunkSize, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    if (t % 10000 == 0) {
+      MPI_Gather(B, chunkSize, MPI_DOUBLE, A, chunkSize, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
+      if (rank == 0) {
         printf("Step t=%d:\t", t);
         printTemperature(A, N);
         printf("\n");
       }
-    }  
+    }
   }
+
+  MPI_Gather(B, chunkSize, MPI_DOUBLE, A, chunkSize, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
   releaseVector(B);
 

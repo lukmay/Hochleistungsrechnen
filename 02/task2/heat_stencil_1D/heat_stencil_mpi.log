@@ -1,48 +1,43 @@
 [DEBUG] Rank: 0, ChunkSize: 100, startIdx: 0, endIdx: 100 
 Computing heat-distribution for room size N=400 for T=200000 timesteps
 Initial:	X                                 @                                                                                      X
+[DEBUG] Broadcasted A to every rank for computation. 
 [DEBUG] Rank: 1, ChunkSize: 100, startIdx: 100, endIdx: 200 
+[DEBUG] Broadcasted A to every rank for computation. 
 [DEBUG] Rank: 2, ChunkSize: 100, startIdx: 200, endIdx: 300 
+[DEBUG] Broadcasted A to every rank for computation. 
 [DEBUG] Rank: 3, ChunkSize: 100, startIdx: 300, endIdx: 400 
 [DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank 0 started with timestep 0. 
-[DEBUG] Rank 0 tries to receive right boundary element ... 
-[DEBUG] Rank 0 sent received right boundary element and sent left one. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank 1 started with timestep 0. 
-[DEBUG] Rank 1 tries to send and receive right boundary element ... 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank 2 started with timestep 0. 
-[DEBUG] Rank 2 tries to send and receive right boundary element ... 
-[DEBUG] Rank 2 send and received right boundary element. 
-[DEBUG] Rank 2 tries to send and receive left boundary element ... 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank 3 started with timestep 0. 
-[DEBUG] Rank 3 tries  to receive left boundary element ... 
-[DEBUG] Rank 3 received left boundary element and sent right one. 
-[DEBUG] Rank 3 started with timestep 1. 
-[DEBUG] Rank 3 tries  to receive left boundary element ... 
-[DEBUG] Rank 1 send and received right boundary element. 
-[DEBUG] Rank 1 tries to send and receive left boundary element ... 
-[DEBUG] Rank 1 send and received left boundary element. 
-[DEBUG] Rank 1 started with timestep 1. 
-[DEBUG] Rank 1 tries to send and receive right boundary element ... 
-[DEBUG] Rank 2 send and received left boundary element. 
-[DEBUG] Rank 2 started with timestep 1. 
-[DEBUG] Rank 2 tries to send and receive right boundary element ... 
-[DEBUG] Rank 2 send and received right boundary element. 
-[DEBUG] Rank 2 tries to send and receive left boundary element ... 
-[DEBUG] Rank 2 send and received left boundary element. 
-[DEBUG] Rank 2 started with timestep 2. 
-[DEBUG] Rank 2 tries to send and receive right boundary element ... 
-[DEBUG] Rank 2 send and received right boundary element. 
-[DEBUG] Rank 2 tries to send and receive left boundary element ... 
-[DEBUG] Rank 1 send and received right boundary element. 
-[DEBUG] Rank 1 tries to send and receive left boundary element ... 
-[DEBUG] Rank 3 received left boundary element and sent right one. 
-[DEBUG] Rank 3 started with timestep 2. 
-[DEBUG] Rank 3 tries  to receive left boundary element ... 
-[DEBUG] Rank 3 received left boundary element and sent right one. 
-[DEBUG] Rank 3 started with timestep 3. 
-[DEBUG] Rank 3 tries  to receive left boundary element ... 
-slurmstepd-n002: error: *** JOB 129712 ON n002 CANCELLED AT 2024-10-14T11:22:07 ***
+Step t=0:	X                                 @                                                                                      X
+Step t=10000:	X                                 @                                                                                      X
+Step t=20000:	X                                -@                                                                                      X
+Step t=30000:	X                                :@                                                                                      X
+Step t=40000:	X                                =@                                                                                      X
+Step t=50000:	X                                +@                                                                                      X
+Step t=60000:	X                                +@                                                                                      X
+Step t=70000:	X                                *@                                                                                      X
+Step t=80000:	X                                ^@                                                                                      X
+Step t=90000:	X                                ^@                                                                                      X
+Step t=100000:	X                                X@                                                                                      X
+Step t=110000:	X                                X@                                                                                      X
+Step t=120000:	X                                #@                                                                                      X
+Step t=130000:	X                                #@                                                                                      X
+Step t=140000:	X                               .%@                                                                                      X
+Step t=150000:	X                               .%@                                                                                      X
+Step t=160000:	X                               .%@                                                                                      X
+Step t=170000:	X                               .@@                                                                                      X
+Step t=180000:	X                               .@@                                                                                      X
+Step t=190000:	X                               .@@                                                                                      X
+Final:		X                               -@@                                                                                      X
+Verification: FAILED
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpiexec detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[65251,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
