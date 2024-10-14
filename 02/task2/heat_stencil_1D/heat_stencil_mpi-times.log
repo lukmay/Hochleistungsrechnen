@@ -1,0 +1,227 @@
+Running MPI Program with problem size: 1024 and ranks: 2
+Problem Size: 1024, Ranks: 2
+WTime: 0.727653 seconds
+Verification: OK
+
+real	0m1.288s
+user	0m1.539s
+sys	0m0.100s
+---------------------------------------------
+Running MPI Program with problem size: 1024 and ranks: 4
+Problem Size: 1024, Ranks: 4
+WTime: 0.653519 seconds
+Verification: OK
+
+real	0m1.210s
+user	0m2.737s
+sys	0m0.172s
+---------------------------------------------
+Running MPI Program with problem size: 1024 and ranks: 8
+Problem Size: 1024, Ranks: 8
+WTime: 0.575003 seconds
+Verification: OK
+
+real	0m1.307s
+user	0m4.796s
+sys	0m0.316s
+---------------------------------------------
+Running MPI Program with problem size: 1024 and ranks: 16
+Problem Size: 1024, Ranks: 16
+WTime: 1.122311 seconds
+Verification: OK
+
+real	0m1.803s
+user	0m13.940s
+sys	0m0.707s
+---------------------------------------------
+Running MPI Program with problem size: 1024 and ranks: 32
+Problem Size: 1024, Ranks: 32
+WTime: 1.158763 seconds
+Verification: OK
+
+real	0m1.869s
+user	0m14.388s
+sys	0m0.878s
+---------------------------------------------
+Running MPI Program with problem size: 1024 and ranks: 64
+Problem Size: 1024, Ranks: 64
+WTime: 1.208683 seconds
+Verification: OK
+
+real	0m1.975s
+user	0m14.987s
+sys	0m0.935s
+---------------------------------------------
+Running MPI Program with problem size: 2048 and ranks: 2
+Problem Size: 2048, Ranks: 2
+WTime: 2.716949 seconds
+Verification: OK
+
+real	0m3.237s
+user	0m5.516s
+sys	0m0.095s
+---------------------------------------------
+Running MPI Program with problem size: 2048 and ranks: 4
+Problem Size: 2048, Ranks: 4
+WTime: 1.971347 seconds
+Verification: OK
+
+real	0m2.517s
+user	0m8.002s
+sys	0m0.171s
+---------------------------------------------
+Running MPI Program with problem size: 2048 and ranks: 8
+Problem Size: 2048, Ranks: 8
+WTime: 1.457918 seconds
+Verification: OK
+
+real	0m2.034s
+user	0m11.841s
+sys	0m0.338s
+---------------------------------------------
+Running MPI Program with problem size: 2048 and ranks: 16
+Problem Size: 2048, Ranks: 16
+WTime: 2.357476 seconds
+Verification: OK
+
+real	0m3.036s
+user	0m28.831s
+sys	0m0.719s
+---------------------------------------------
+Running MPI Program with problem size: 2048 and ranks: 32
+Problem Size: 2048, Ranks: 32
+WTime: 2.325968 seconds
+Verification: OK
+
+real	0m3.055s
+user	0m28.380s
+sys	0m0.924s
+---------------------------------------------
+Running MPI Program with problem size: 2048 and ranks: 64
+Problem Size: 2048, Ranks: 64
+WTime: 2.343825 seconds
+Verification: OK
+
+real	0m3.125s
+user	0m28.642s
+sys	0m0.879s
+---------------------------------------------
+Running MPI Program with problem size: 4096 and ranks: 2
+Problem Size: 4096, Ranks: 2
+WTime: 10.543568 seconds
+Verification: OK
+
+real	0m11.038s
+user	0m21.132s
+sys	0m0.106s
+---------------------------------------------
+Running MPI Program with problem size: 4096 and ranks: 4
+Problem Size: 4096, Ranks: 4
+WTime: 6.524703 seconds
+Verification: OK
+
+real	0m7.039s
+user	0m26.177s
+sys	0m0.173s
+---------------------------------------------
+Running MPI Program with problem size: 4096 and ranks: 8
+Problem Size: 4096, Ranks: 8
+WTime: 4.225251 seconds
+Verification: OK
+
+real	0m4.779s
+user	0m33.947s
+sys	0m0.315s
+---------------------------------------------
+Running MPI Program with problem size: 4096 and ranks: 16
+Problem Size: 4096, Ranks: 16
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  n002.intern.lcc3.intra.uibk.ac.at
+  System call: open(2) 
+  Error:       Permission denied (errno 13)
+--------------------------------------------------------------------------
+[n001.intern.lcc3.intra.uibk.ac.at:952240] 15 more processes have sent help message help-opal-shmem-mmap.txt / sys call fail
+[n001.intern.lcc3.intra.uibk.ac.at:952240] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+WTime: 5.413583 seconds
+Verification: OK
+
+real	0m6.108s
+user	1m5.414s
+sys	0m0.692s
+---------------------------------------------
+Running MPI Program with problem size: 4096 and ranks: 32
+Problem Size: 4096, Ranks: 32
+WTime: 4.947791 seconds
+Verification: OK
+
+real	0m5.678s
+user	0m59.603s
+sys	0m0.883s
+---------------------------------------------
+Running MPI Program with problem size: 4096 and ranks: 64
+Problem Size: 4096, Ranks: 64
+WTime: 4.682026 seconds
+Verification: OK
+
+real	0m5.554s
+user	0m56.721s
+sys	0m0.893s
+---------------------------------------------
+Running MPI Program with problem size: 6144 and ranks: 2
+Problem Size: 6144, Ranks: 2
+WTime: 23.240985 seconds
+Verification: OK
+
+real	0m23.880s
+user	0m46.504s
+sys	0m0.095s
+---------------------------------------------
+Running MPI Program with problem size: 6144 and ranks: 4
+Problem Size: 6144, Ranks: 4
+WTime: 13.544330 seconds
+Verification: OK
+
+real	0m14.030s
+user	0m54.201s
+sys	0m0.169s
+---------------------------------------------
+Running MPI Program with problem size: 6144 and ranks: 8
+Problem Size: 6144, Ranks: 8
+WTime: 8.130790 seconds
+Verification: OK
+
+real	0m8.767s
+user	1m5.107s
+sys	0m0.338s
+---------------------------------------------
+Running MPI Program with problem size: 6144 and ranks: 16
+Problem Size: 6144, Ranks: 16
+WTime: 9.139190 seconds
+Verification: OK
+
+real	0m9.838s
+user	1m50.057s
+sys	0m0.703s
+---------------------------------------------
+Running MPI Program with problem size: 6144 and ranks: 32
+Problem Size: 6144, Ranks: 32
+WTime: 7.940742 seconds
+Verification: OK
+
+real	0m8.682s
+user	1m35.349s
+sys	0m0.918s
+---------------------------------------------
+Running MPI Program with problem size: 6144 and ranks: 64
+Problem Size: 6144, Ranks: 64
+WTime: 7.217950 seconds
+Verification: OK
+
+real	0m8.044s
+user	1m27.021s
+sys	0m0.910s
+---------------------------------------------

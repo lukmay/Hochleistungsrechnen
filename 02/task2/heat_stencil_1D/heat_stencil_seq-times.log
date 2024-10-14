@@ -1,0 +1,32 @@
+Running Sequential Program with problem size: 1024
+Problem Size: 1024
+Time taken: 1.071934 seconds
+
+real	0m1.223s
+user	0m1.107s
+sys	0m0.042s
+---------------------------------------------
+Running Sequential Program with problem size: 2048
+Problem Size: 2048
+Time taken: 4.218740 seconds
+
+real	0m4.343s
+user	0m4.260s
+sys	0m0.032s
+---------------------------------------------
+Running Sequential Program with problem size: 4096
+Problem Size: 4096
+Time taken: 17.094536 seconds
+
+real	0m17.240s
+user	0m17.129s
+sys	0m0.039s
+---------------------------------------------
+Running Sequential Program with problem size: 6144
+Problem Size: 6144
+Time taken: 38.496250 seconds
+
+real	0m38.679s
+user	0m38.521s
+sys	0m0.050s
+---------------------------------------------

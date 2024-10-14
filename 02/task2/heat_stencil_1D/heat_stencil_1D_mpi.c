@@ -11,9 +11,7 @@ typedef double value_t;
 typedef value_t *Vector;
 
 Vector createVector(int N);
-
 void releaseVector(Vector m);
-
 void printTemperature(Vector m, int N);
 
 // -- simulation code ---
@@ -35,43 +33,53 @@ int main(int argc, char **argv) {
   // Time measurement variables
   double starttime, endtime;
 
-  // Calculate chunk size, start and end point for each process
+  // Calculate chunk size and handle remainder
   int chunkSize = N / numProcs;
   int remainder = N % numProcs;
 
+  // Determine start and end index for each rank
+  int startIdx = rank * chunkSize + (rank < remainder ? rank : remainder);
+  int endIdx = startIdx + chunkSize + (rank < remainder ? 1 : 0);
+  int localSize = endIdx - startIdx;
+
+  // Debug information
+  printf("[DEBUG] Rank: %i, localSize: %i, startIdx: %i, endIdx: %i \n", rank, localSize, startIdx, endIdx);
+
+  // Create a buffer for storing temperature fields
+  Vector A = createVector(N);
+
+  // Counts and displacements for MPI_Gatherv
+  int *counts = NULL;
+  int *displs = NULL;
   if (rank == 0) {
-    if (remainder > 0) {
-      printf("The problem size can't be evenly distributed to the number of processes. Please redefine it.");
-      return 0;
+    counts = malloc(sizeof(int) * numProcs);
+    displs = malloc(sizeof(int) * numProcs);
+    for (int i = 0; i < numProcs; i++) {
+      int tempStartIdx = i * chunkSize + (i < remainder ? i : remainder);
+      int tempEndIdx = tempStartIdx + chunkSize + (i < remainder ? 1 : 0);
+      counts[i] = tempEndIdx - tempStartIdx;
+      displs[i] = tempStartIdx;
     }
   }
-
-  int startIdx = rank * chunkSize;
-  int endIdx = startIdx + chunkSize;
-  printf("[DEBUG] Rank: %i, ChunkSize: %i, startIdx: %i, endIdx: %i \n", rank, chunkSize, startIdx, endIdx);
-
-  // create a buffer for storing temperature fields
-  Vector A = createVector(N);
 
   int source_x = N / 4;
 
   if (rank == 0) {
-    
     printf("Computing heat-distribution for room size N=%d for T=%d timesteps\n", N, T);
 
-    // ---------- setup --------- 
-    // set up initial conditions in A
+    // ---------- setup ---------
+    // Set up initial conditions in A
     for (int i = 0; i < N; i++) {
       A[i] = 273; // temperature is 0° C everywhere (273 K)
     }
 
-    // and there is a heat source in one corner
+    // Heat source in one corner
     A[source_x] = 273 + 60;
 
     printf("Initial:\t");
     printTemperature(A, N);
     printf("\n");
-  } 
+  }
 
   // Distribute A to all processes
   MPI_Bcast(A, N, MPI_DOUBLE, 0, MPI_COMM_WORLD);
@@ -82,76 +90,58 @@ int main(int argc, char **argv) {
 
   // ---------- compute ----------
 
-  // create a second buffer for the computation and initialize with A
-  Vector B = createVector(chunkSize);
-  Vector C = createVector(chunkSize);
+  // Create buffers for the computation and initialize with A
+  Vector B = createVector(localSize);
+  Vector C = createVector(localSize);
   for (int i = startIdx; i < endIdx; i++) {
-      B[i - startIdx] = A[i]; 
+    B[i - startIdx] = A[i];
   }
-  // create variables for the neighbours
+
+  // Create variables for the neighbours
   value_t rightNeighbour = 0;
   value_t leftNeighbour = 0;
 
-
-  // for each time step ..
+  // For each time step
   for (int t = 0; t < T; t++) {
     // Exchange boundary values with neighboring processes
-    // printf("[DEBUG] Rank %i started with timestep %i. \n", rank, t);
-    if ((rank > 0) & (rank < numProcs - 1)) {
-      // printf("[DEBUG] Rank %i tries to send and receive right boundary element ... \n", rank);
-      MPI_Sendrecv(&B[0], 1, MPI_DOUBLE, rank - 1, 0, &rightNeighbour, 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      // printf("[DEBUG] Rank %i send and received right boundary element. \n", rank);
-
-      //printf("[DEBUG] Rank %i tries to send and receive left boundary element ... \n", rank);
-      MPI_Sendrecv(&B[chunkSize - 1], 1, MPI_DOUBLE, rank + 1, 1, &leftNeighbour, 1, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      //printf("[DEBUG] Rank %i send and received left boundary element. \n", rank);
-    }
-    if (rank == 0) {
-      //printf("[DEBUG] Rank %i tries to receive right boundary element ... \n", rank);
-      MPI_Sendrecv(&B[chunkSize - 1], 1, MPI_DOUBLE, rank + 1, 1, &rightNeighbour, 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      // printf("[DEBUG] Rank %i sent received right boundary element and sent left one. \n", rank);
-    }
-    if (rank == numProcs - 1) {
-      //printf("[DEBUG] Rank %i tries  to receive left boundary element ... \n", rank);
+    if (rank > 0) {
       MPI_Sendrecv(&B[0], 1, MPI_DOUBLE, rank - 1, 0, &leftNeighbour, 1, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
-      //printf("[DEBUG] Rank %i received left boundary element and sent right one. \n", rank);
+    } else {
+      leftNeighbour = B[0];
+    }
+    if (rank < numProcs - 1) {
+      MPI_Sendrecv(&B[localSize - 1], 1, MPI_DOUBLE, rank + 1, 1, &rightNeighbour, 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    } else {
+      rightNeighbour = B[localSize - 1];
     }
 
-    // .. we propagate the temperature
-    for (long long i = startIdx; i < endIdx; i++) {
-      // center stays constant (the heat is still on)
+    // Propagate the temperature
+    for (int i = startIdx; i < endIdx; i++) {
+      // Heat source remains constant
       if (i == source_x) {
         C[i - startIdx] = B[i - startIdx];
         continue;
       }
 
-      // get temperature at current position
+      // Current temperature
       value_t tc = B[i - startIdx];
 
-      // get temperatures of adjacent cells
-      value_t tl;
-      if (i == startIdx) {
-        tl = (rank > 0) ? leftNeighbour : tc;  
-      } else {
-          tl = B[i - 1- startIdx];  
-      }
-      value_t tr;
-      if (i == endIdx - 1) {
-          tr = (rank < numProcs - 1) ? rightNeighbour : tc;  
-      } else {
-          tr = B[i - startIdx + 1];  
-      }
+      // Temperatures of adjacent cells
+      value_t tl = (i == startIdx) ? leftNeighbour : B[i - 1 - startIdx];
+      value_t tr = (i == endIdx - 1) ? rightNeighbour : B[i - startIdx + 1];
 
-      // compute new temperature at current position
+      // Compute new temperature
       C[i - startIdx] = tc + 0.2 * (tl + tr + (-2 * tc));
     }
 
+    // Swap buffers
     Vector H = B;
     B = C;
     C = H;
 
+    // Print temperature at intervals
     if (t % 10000 == 0) {
-      MPI_Gather(B, chunkSize, MPI_DOUBLE, A, chunkSize, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+      MPI_Gatherv(B, localSize, MPI_DOUBLE, A, counts, displs, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
       if (rank == 0) {
         printf("Step t=%d:\t", t);
@@ -161,9 +151,11 @@ int main(int argc, char **argv) {
     }
   }
 
-  MPI_Gather(B, chunkSize, MPI_DOUBLE, A, chunkSize, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+  // Gather final results from all processes
+  MPI_Gatherv(B, localSize, MPI_DOUBLE, A, counts, displs, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
   releaseVector(B);
+  releaseVector(C);
 
   // End time measurement after computation
   endtime = MPI_Wtime();
@@ -176,7 +168,7 @@ int main(int argc, char **argv) {
     printTemperature(A, N);
     printf("\n");
 
-    for (long long i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++) {
       value_t temp = A[i];
       if (273 <= temp && temp <= 273 + 60)
         continue;
@@ -188,57 +180,62 @@ int main(int argc, char **argv) {
 
     // Print the time
     printf("WTime: %f seconds\n", endtime - starttime);
+
+    // Free counts and displacements arrays
+    free(counts);
+    free(displs);
   }
 
   // ---------- cleanup ----------
 
   releaseVector(A);
 
-  // done
+  // Finalize MPI
   MPI_Finalize();
   return (success) ? EXIT_SUCCESS : EXIT_FAILURE;
 }
 
 Vector createVector(int N) {
-  // create data and index vector
   return malloc(sizeof(value_t) * N);
 }
 
-void releaseVector(Vector m) { free(m); }
+void releaseVector(Vector m) {
+  free(m);
+}
 
 void printTemperature(Vector m, int N) {
   const char *colors = " .-:=+*^X#%@";
   const int numColors = 12;
 
-  // boundaries for temperature (for simplicity hard-coded)
+  // Boundaries for temperature (for simplicity hard-coded)
   const value_t max = 273 + 30;
   const value_t min = 273 + 0;
 
-  // set the 'render' resolution
+  // Set the 'render' resolution
   int W = RESOLUTION;
 
-  // step size in each dimension
+  // Step size in each dimension
   int sW = N / W;
 
-  // room
-  // left wall
+  // Room
+  // Left wall
   printf("X");
-  // actual room
+  // Actual room
   for (int i = 0; i < W; i++) {
-    // get max temperature in this tile
+    // Get max temperature in this tile
     value_t max_t = 0;
     for (int x = sW * i; x < sW * i + sW; x++) {
       max_t = (max_t < m[x]) ? m[x] : max_t;
     }
     value_t temp = max_t;
 
-    // pick the 'color'
+    // Pick the 'color'
     int c = ((temp - min) / (max - min)) * numColors;
     c = (c >= numColors) ? numColors - 1 : ((c < 0) ? 0 : c);
 
-    // print the average temperature
+    // Print the average temperature
     printf("%c", colors[c]);
   }
-  // right wall
+  // Right wall
   printf("X");
 }

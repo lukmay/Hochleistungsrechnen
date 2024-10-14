@@ -1,197 +1,197 @@
-[DEBUG] Rank: 4, ChunkSize: 64, startIdx: 256, endIdx: 320 
-[DEBUG] Rank: 8, ChunkSize: 64, startIdx: 512, endIdx: 576 
-[DEBUG] Rank: 10, ChunkSize: 64, startIdx: 640, endIdx: 704 
-[DEBUG] Rank: 0, ChunkSize: 64, startIdx: 0, endIdx: 64 
+[DEBUG] Rank: 0, localSize: 64, startIdx: 0, endIdx: 64 
 Computing heat-distribution for room size N=6144 for T=3072000 timesteps
 Initial:	X                              @                                                                                         X
-[DEBUG] Rank: 2, ChunkSize: 64, startIdx: 128, endIdx: 192 
-[DEBUG] Rank: 6, ChunkSize: 64, startIdx: 384, endIdx: 448 
-[DEBUG] Rank: 9, ChunkSize: 64, startIdx: 576, endIdx: 640 
-[DEBUG] Rank: 5, ChunkSize: 64, startIdx: 320, endIdx: 384 
-[DEBUG] Rank: 11, ChunkSize: 64, startIdx: 704, endIdx: 768 
-[DEBUG] Rank: 7, ChunkSize: 64, startIdx: 448, endIdx: 512 
-[DEBUG] Rank: 1, ChunkSize: 64, startIdx: 64, endIdx: 128 
-[DEBUG] Rank: 3, ChunkSize: 64, startIdx: 192, endIdx: 256 
-[DEBUG] Rank: 41, ChunkSize: 64, startIdx: 2624, endIdx: 2688 
-[DEBUG] Rank: 13, ChunkSize: 64, startIdx: 832, endIdx: 896 
-[DEBUG] Rank: 54, ChunkSize: 64, startIdx: 3456, endIdx: 3520 
-[DEBUG] Rank: 67, ChunkSize: 64, startIdx: 4288, endIdx: 4352 
-[DEBUG] Rank: 45, ChunkSize: 64, startIdx: 2880, endIdx: 2944 
-[DEBUG] Rank: 76, ChunkSize: 64, startIdx: 4864, endIdx: 4928 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank: 25, ChunkSize: 64, startIdx: 1600, endIdx: 1664 
-[DEBUG] Rank: 46, ChunkSize: 64, startIdx: 2944, endIdx: 3008 
-[DEBUG] Rank: 82, ChunkSize: 64, startIdx: 5248, endIdx: 5312 
-[DEBUG] Rank: 21, ChunkSize: 64, startIdx: 1344, endIdx: 1408 
-[DEBUG] Rank: 56, ChunkSize: 64, startIdx: 3584, endIdx: 3648 
-[DEBUG] Rank: 62, ChunkSize: 64, startIdx: 3968, endIdx: 4032 
-[DEBUG] Rank: 47, ChunkSize: 64, startIdx: 3008, endIdx: 3072 
-[DEBUG] Rank: 72, ChunkSize: 64, startIdx: 4608, endIdx: 4672 
-[DEBUG] Rank: 28, ChunkSize: 64, startIdx: 1792, endIdx: 1856 
-[DEBUG] Rank: 14, ChunkSize: 64, startIdx: 896, endIdx: 960 
-[DEBUG] Rank: 58, ChunkSize: 64, startIdx: 3712, endIdx: 3776 
-[DEBUG] Rank: 84, ChunkSize: 64, startIdx: 5376, endIdx: 5440 
-[DEBUG] Rank: 63, ChunkSize: 64, startIdx: 4032, endIdx: 4096 
-[DEBUG] Rank: 40, ChunkSize: 64, startIdx: 2560, endIdx: 2624 
-[DEBUG] Rank: 74, ChunkSize: 64, startIdx: 4736, endIdx: 4800 
-[DEBUG] Rank: 29, ChunkSize: 64, startIdx: 1856, endIdx: 1920 
-[DEBUG] Rank: 15, ChunkSize: 64, startIdx: 960, endIdx: 1024 
-[DEBUG] Rank: 50, ChunkSize: 64, startIdx: 3200, endIdx: 3264 
-[DEBUG] Rank: 86, ChunkSize: 64, startIdx: 5504, endIdx: 5568 
-[DEBUG] Rank: 65, ChunkSize: 64, startIdx: 4160, endIdx: 4224 
-[DEBUG] Rank: 42, ChunkSize: 64, startIdx: 2688, endIdx: 2752 
-[DEBUG] Rank: 78, ChunkSize: 64, startIdx: 4992, endIdx: 5056 
-[DEBUG] Rank: 31, ChunkSize: 64, startIdx: 1984, endIdx: 2048 
-[DEBUG] Rank: 19, ChunkSize: 64, startIdx: 1216, endIdx: 1280 
-[DEBUG] Rank: 52, ChunkSize: 64, startIdx: 3328, endIdx: 3392 
-[DEBUG] Rank: 88, ChunkSize: 64, startIdx: 5632, endIdx: 5696 
-[DEBUG] Rank: 68, ChunkSize: 64, startIdx: 4352, endIdx: 4416 
-[DEBUG] Rank: 37, ChunkSize: 64, startIdx: 2368, endIdx: 2432 
-[DEBUG] Rank: 79, ChunkSize: 64, startIdx: 5056, endIdx: 5120 
-[DEBUG] Rank: 32, ChunkSize: 64, startIdx: 2048, endIdx: 2112 
-[DEBUG] Rank: 22, ChunkSize: 64, startIdx: 1408, endIdx: 1472 
-[DEBUG] Rank: 55, ChunkSize: 64, startIdx: 3520, endIdx: 3584 
-[DEBUG] Rank: 91, ChunkSize: 64, startIdx: 5824, endIdx: 5888 
-[DEBUG] Rank: 69, ChunkSize: 64, startIdx: 4416, endIdx: 4480 
-[DEBUG] Rank: 38, ChunkSize: 64, startIdx: 2432, endIdx: 2496 
-[DEBUG] Rank: 80, ChunkSize: 64, startIdx: 5120, endIdx: 5184 
-[DEBUG] Rank: 35, ChunkSize: 64, startIdx: 2240, endIdx: 2304 
-[DEBUG] Rank: 23, ChunkSize: 64, startIdx: 1472, endIdx: 1536 
-[DEBUG] Rank: 57, ChunkSize: 64, startIdx: 3648, endIdx: 3712 
-[DEBUG] Rank: 92, ChunkSize: 64, startIdx: 5888, endIdx: 5952 
-[DEBUG] Rank: 70, ChunkSize: 64, startIdx: 4480, endIdx: 4544 
-[DEBUG] Rank: 39, ChunkSize: 64, startIdx: 2496, endIdx: 2560 
-[DEBUG] Rank: 83, ChunkSize: 64, startIdx: 5312, endIdx: 5376 
-[DEBUG] Rank: 24, ChunkSize: 64, startIdx: 1536, endIdx: 1600 
-[DEBUG] Rank: 12, ChunkSize: 64, startIdx: 768, endIdx: 832 
-[DEBUG] Rank: 49, ChunkSize: 64, startIdx: 3136, endIdx: 3200 
-[DEBUG] Rank: 94, ChunkSize: 64, startIdx: 6016, endIdx: 6080 
-[DEBUG] Rank: 71, ChunkSize: 64, startIdx: 4544, endIdx: 4608 
-[DEBUG] Rank: 43, ChunkSize: 64, startIdx: 2752, endIdx: 2816 
-[DEBUG] Rank: 73, ChunkSize: 64, startIdx: 4672, endIdx: 4736 
-[DEBUG] Rank: 26, ChunkSize: 64, startIdx: 1664, endIdx: 1728 
-[DEBUG] Rank: 16, ChunkSize: 64, startIdx: 1024, endIdx: 1088 
-[DEBUG] Rank: 51, ChunkSize: 64, startIdx: 3264, endIdx: 3328 
-[DEBUG] Rank: 95, ChunkSize: 64, startIdx: 6080, endIdx: 6144 
-[DEBUG] Rank: 60, ChunkSize: 64, startIdx: 3840, endIdx: 3904 
-[DEBUG] Rank: 36, ChunkSize: 64, startIdx: 2304, endIdx: 2368 
-[DEBUG] Rank: 75, ChunkSize: 64, startIdx: 4800, endIdx: 4864 
-[DEBUG] Rank: 27, ChunkSize: 64, startIdx: 1728, endIdx: 1792 
-[DEBUG] Rank: 17, ChunkSize: 64, startIdx: 1088, endIdx: 1152 
-[DEBUG] Rank: 59, ChunkSize: 64, startIdx: 3776, endIdx: 3840 
-[DEBUG] Rank: 85, ChunkSize: 64, startIdx: 5440, endIdx: 5504 
-[DEBUG] Rank: 61, ChunkSize: 64, startIdx: 3904, endIdx: 3968 
-[DEBUG] Rank: 44, ChunkSize: 64, startIdx: 2816, endIdx: 2880 
-[DEBUG] Rank: 77, ChunkSize: 64, startIdx: 4928, endIdx: 4992 
-[DEBUG] Rank: 30, ChunkSize: 64, startIdx: 1920, endIdx: 1984 
-[DEBUG] Rank: 18, ChunkSize: 64, startIdx: 1152, endIdx: 1216 
-[DEBUG] Rank: 48, ChunkSize: 64, startIdx: 3072, endIdx: 3136 
-[DEBUG] Rank: 87, ChunkSize: 64, startIdx: 5568, endIdx: 5632 
-[DEBUG] Rank: 64, ChunkSize: 64, startIdx: 4096, endIdx: 4160 
-[DEBUG] Rank: 81, ChunkSize: 64, startIdx: 5184, endIdx: 5248 
-[DEBUG] Rank: 33, ChunkSize: 64, startIdx: 2112, endIdx: 2176 
-[DEBUG] Rank: 20, ChunkSize: 64, startIdx: 1280, endIdx: 1344 
-[DEBUG] Rank: 53, ChunkSize: 64, startIdx: 3392, endIdx: 3456 
-[DEBUG] Rank: 89, ChunkSize: 64, startIdx: 5696, endIdx: 5760 
-[DEBUG] Rank: 66, ChunkSize: 64, startIdx: 4224, endIdx: 4288 
-[DEBUG] Rank: 34, ChunkSize: 64, startIdx: 2176, endIdx: 2240 
-[DEBUG] Rank: 90, ChunkSize: 64, startIdx: 5760, endIdx: 5824 
-[DEBUG] Rank: 93, ChunkSize: 64, startIdx: 5952, endIdx: 6016 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Broadcasted A to every rank for computation. 
+[DEBUG] Rank: 3, localSize: 64, startIdx: 192, endIdx: 256 
+[DEBUG] Rank: 2, localSize: 64, startIdx: 128, endIdx: 192 
+[DEBUG] Rank: 4, localSize: 64, startIdx: 256, endIdx: 320 
+[DEBUG] Rank: 6, localSize: 64, startIdx: 384, endIdx: 448 
+[DEBUG] Rank: 5, localSize: 64, startIdx: 320, endIdx: 384 
+[DEBUG] Rank: 8, localSize: 64, startIdx: 512, endIdx: 576 
+[DEBUG] Rank: 10, localSize: 64, startIdx: 640, endIdx: 704 
+[DEBUG] Rank: 11, localSize: 64, startIdx: 704, endIdx: 768 
+[DEBUG] Rank: 1, localSize: 64, startIdx: 64, endIdx: 128 
+[DEBUG] Rank: 7, localSize: 64, startIdx: 448, endIdx: 512 
+[DEBUG] Rank: 9, localSize: 64, startIdx: 576, endIdx: 640 
+[DEBUG] Rank: 45, localSize: 64, startIdx: 2880, endIdx: 2944 
+[DEBUG] Rank: 26, localSize: 64, startIdx: 1664, endIdx: 1728 
+[DEBUG] Rank: 37, localSize: 64, startIdx: 2368, endIdx: 2432 
+[DEBUG] Rank: 55, localSize: 64, startIdx: 3520, endIdx: 3584 
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Rank: 32, localSize: 64, startIdx: 2048, endIdx: 2112 
+[DEBUG] Rank: 39, localSize: 64, startIdx: 2496, endIdx: 2560 
+[DEBUG] Rank: 15, localSize: 64, startIdx: 960, endIdx: 1024 
+[DEBUG] Rank: 72, localSize: 64, startIdx: 4608, endIdx: 4672 
+[DEBUG] Rank: 54, localSize: 64, startIdx: 3456, endIdx: 3520 
+[DEBUG] Rank: 43, localSize: 64, startIdx: 2752, endIdx: 2816 
+[DEBUG] Rank: 87, localSize: 64, startIdx: 5568, endIdx: 5632 
+[DEBUG] Rank: 56, localSize: 64, startIdx: 3584, endIdx: 3648 
+[DEBUG] Rank: 21, localSize: 64, startIdx: 1344, endIdx: 1408 
+[DEBUG] Rank: 25, localSize: 64, startIdx: 1600, endIdx: 1664 
+[DEBUG] Rank: 74, localSize: 64, startIdx: 4736, endIdx: 4800 
+[DEBUG] Rank: 38, localSize: 64, startIdx: 2432, endIdx: 2496 
+[DEBUG] Rank: 62, localSize: 64, startIdx: 3968, endIdx: 4032 
+[DEBUG] Rank: 13, localSize: 64, startIdx: 832, endIdx: 896 
+[DEBUG] Rank: 28, localSize: 64, startIdx: 1792, endIdx: 1856 
+[DEBUG] Rank: 76, localSize: 64, startIdx: 4864, endIdx: 4928 
+[DEBUG] Rank: 41, localSize: 64, startIdx: 2624, endIdx: 2688 
+[DEBUG] Rank: 57, localSize: 64, startIdx: 3648, endIdx: 3712 
+[DEBUG] Rank: 14, localSize: 64, startIdx: 896, endIdx: 960 
+[DEBUG] Rank: 34, localSize: 64, startIdx: 2176, endIdx: 2240 
+[DEBUG] Rank: 80, localSize: 64, startIdx: 5120, endIdx: 5184 
+[DEBUG] Rank: 42, localSize: 64, startIdx: 2688, endIdx: 2752 
+[DEBUG] Rank: 64, localSize: 64, startIdx: 4096, endIdx: 4160 
+[DEBUG] Rank: 48, localSize: 64, startIdx: 3072, endIdx: 3136 
+[DEBUG] Rank: 95, localSize: 64, startIdx: 6080, endIdx: 6144 
+[DEBUG] Rank: 16, localSize: 64, startIdx: 1024, endIdx: 1088 
+[DEBUG] Rank: 24, localSize: 64, startIdx: 1536, endIdx: 1600 
+[DEBUG] Rank: 78, localSize: 64, startIdx: 4992, endIdx: 5056 
+[DEBUG] Rank: 44, localSize: 64, startIdx: 2816, endIdx: 2880 
+[DEBUG] Rank: 65, localSize: 64, startIdx: 4160, endIdx: 4224 
+[DEBUG] Rank: 49, localSize: 64, startIdx: 3136, endIdx: 3200 
+[DEBUG] Rank: 86, localSize: 64, startIdx: 5504, endIdx: 5568 
+[DEBUG] Rank: 17, localSize: 64, startIdx: 1088, endIdx: 1152 
+[DEBUG] Rank: 27, localSize: 64, startIdx: 1728, endIdx: 1792 
+[DEBUG] Rank: 81, localSize: 64, startIdx: 5184, endIdx: 5248 
+[DEBUG] Rank: 47, localSize: 64, startIdx: 3008, endIdx: 3072 
+[DEBUG] Rank: 66, localSize: 64, startIdx: 4224, endIdx: 4288 
+[DEBUG] Rank: 50, localSize: 64, startIdx: 3200, endIdx: 3264 
+[DEBUG] Rank: 88, localSize: 64, startIdx: 5632, endIdx: 5696 
+[DEBUG] Rank: 18, localSize: 64, startIdx: 1152, endIdx: 1216 
+[DEBUG] Rank: 29, localSize: 64, startIdx: 1856, endIdx: 1920 
+[DEBUG] Rank: 82, localSize: 64, startIdx: 5248, endIdx: 5312 
+[DEBUG] Rank: 36, localSize: 64, startIdx: 2304, endIdx: 2368 
+[DEBUG] Rank: 69, localSize: 64, startIdx: 4416, endIdx: 4480 
+[DEBUG] Rank: 51, localSize: 64, startIdx: 3264, endIdx: 3328 
+[DEBUG] Rank: 89, localSize: 64, startIdx: 5696, endIdx: 5760 
+[DEBUG] Rank: 19, localSize: 64, startIdx: 1216, endIdx: 1280 
+[DEBUG] Rank: 30, localSize: 64, startIdx: 1920, endIdx: 1984 
+[DEBUG] Rank: 83, localSize: 64, startIdx: 5312, endIdx: 5376 
+[DEBUG] Rank: 40, localSize: 64, startIdx: 2560, endIdx: 2624 
+[DEBUG] Rank: 60, localSize: 64, startIdx: 3840, endIdx: 3904 
+[DEBUG] Rank: 53, localSize: 64, startIdx: 3392, endIdx: 3456 
+[DEBUG] Rank: 90, localSize: 64, startIdx: 5760, endIdx: 5824 
+[DEBUG] Rank: 20, localSize: 64, startIdx: 1280, endIdx: 1344 
+[DEBUG] Rank: 31, localSize: 64, startIdx: 1984, endIdx: 2048 
+[DEBUG] Rank: 73, localSize: 64, startIdx: 4672, endIdx: 4736 
+[DEBUG] Rank: 46, localSize: 64, startIdx: 2944, endIdx: 3008 
+[DEBUG] Rank: 63, localSize: 64, startIdx: 4032, endIdx: 4096 
+[DEBUG] Rank: 59, localSize: 64, startIdx: 3776, endIdx: 3840 
+[DEBUG] Rank: 91, localSize: 64, startIdx: 5824, endIdx: 5888 
+[DEBUG] Rank: 22, localSize: 64, startIdx: 1408, endIdx: 1472 
+[DEBUG] Rank: 33, localSize: 64, startIdx: 2112, endIdx: 2176 
+[DEBUG] Rank: 77, localSize: 64, startIdx: 4928, endIdx: 4992 
+[DEBUG] Rank: 68, localSize: 64, startIdx: 4352, endIdx: 4416 
+[DEBUG] Rank: 52, localSize: 64, startIdx: 3328, endIdx: 3392 
+[DEBUG] Rank: 92, localSize: 64, startIdx: 5888, endIdx: 5952 
+[DEBUG] Rank: 23, localSize: 64, startIdx: 1472, endIdx: 1536 
+[DEBUG] Rank: 35, localSize: 64, startIdx: 2240, endIdx: 2304 
+[DEBUG] Rank: 75, localSize: 64, startIdx: 4800, endIdx: 4864 
+[DEBUG] Rank: 70, localSize: 64, startIdx: 4480, endIdx: 4544 
+[DEBUG] Rank: 58, localSize: 64, startIdx: 3712, endIdx: 3776 
+[DEBUG] Rank: 93, localSize: 64, startIdx: 5952, endIdx: 6016 
+[DEBUG] Rank: 12, localSize: 64, startIdx: 768, endIdx: 832 
+[DEBUG] Rank: 79, localSize: 64, startIdx: 5056, endIdx: 5120 
+[DEBUG] Rank: 71, localSize: 64, startIdx: 4544, endIdx: 4608 
+[DEBUG] Rank: 84, localSize: 64, startIdx: 5376, endIdx: 5440 
+[DEBUG] Rank: 61, localSize: 64, startIdx: 3904, endIdx: 3968 
+[DEBUG] Rank: 94, localSize: 64, startIdx: 6016, endIdx: 6080 
+[DEBUG] Rank: 67, localSize: 64, startIdx: 4288, endIdx: 4352 
+[DEBUG] Rank: 85, localSize: 64, startIdx: 5440, endIdx: 5504 
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
+[DEBUG] Broadcasted A to every rank for computation.
 Step t=0:	X                              @                                                                                         X
 Step t=10000:	X                           -X@@@:                                                                                       X
 Step t=20000:	X                          .+@@@@*-                                                                                      X
@@ -502,4 +502,4 @@ Step t=3060000:	X^^XXXXX##%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##XX^***++===::
 Step t=3070000:	X^XXXXXX##%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##XX^^**++===:::----.......                                             X
 Final:		X^XXXXXX##%%%@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@%##XX^^**++===:::----.......                                             X
 Verification: OK
-WTime: 12.043531 seconds
+WTime: 7.114573 seconds
