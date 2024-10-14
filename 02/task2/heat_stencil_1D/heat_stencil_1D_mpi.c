@@ -32,6 +32,9 @@ int main(int argc, char **argv) {
   MPI_Comm_rank(MPI_COMM_WORLD, &rank);
   MPI_Comm_size(MPI_COMM_WORLD, &numProcs);
 
+  // Time measurement variables
+  double starttime, endtime;
+
   // Calculate chunk size, start and end point for each process
   int chunkSize = N / numProcs;
   int remainder = N % numProcs;
@@ -73,6 +76,9 @@ int main(int argc, char **argv) {
   // Distribute A to all processes
   MPI_Bcast(A, N, MPI_DOUBLE, 0, MPI_COMM_WORLD);
   printf("[DEBUG] Broadcasted A to every rank for computation. \n");
+
+  // Start time measurement before the computation begins
+  starttime = MPI_Wtime();
 
   // ---------- compute ----------
 
@@ -159,6 +165,9 @@ int main(int argc, char **argv) {
 
   releaseVector(B);
 
+  // End time measurement after computation
+  endtime = MPI_Wtime();
+
   // ---------- check ----------
   int success = 1;
 
@@ -176,6 +185,9 @@ int main(int argc, char **argv) {
     }
 
     printf("Verification: %s\n", (success) ? "OK" : "FAILED");
+
+    // Print the time
+    printf("WTime: %f seconds\n", endtime - starttime);
   }
 
   // ---------- cleanup ----------
