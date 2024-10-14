@@ -1,34 +1,34 @@
+[DEBUG] Rank: 1, ChunkSize: 100, startIdx: 100, endIdx: 200 
+[DEBUG] Rank: 2, ChunkSize: 100, startIdx: 200, endIdx: 300 
+[DEBUG] Rank: 3, ChunkSize: 100, startIdx: 300, endIdx: 400 
 [DEBUG] Rank: 0, ChunkSize: 100, startIdx: 0, endIdx: 100 
 Computing heat-distribution for room size N=400 for T=200000 timesteps
 Initial:	X                                 @                                                                                      X
 [DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank: 1, ChunkSize: 100, startIdx: 100, endIdx: 200 
 [DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank: 2, ChunkSize: 100, startIdx: 200, endIdx: 300 
 [DEBUG] Broadcasted A to every rank for computation. 
-[DEBUG] Rank: 3, ChunkSize: 100, startIdx: 300, endIdx: 400 
 [DEBUG] Broadcasted A to every rank for computation. 
 Step t=0:	X                                 @                                                                                      X
-Step t=10000:	X                                 @                                                                                      X
-Step t=20000:	X                                -@                                                                                      X
-Step t=30000:	X                                :@                                                                                      X
-Step t=40000:	X                                =@                                                                                      X
-Step t=50000:	X                                +@                                                                                      X
-Step t=60000:	X                                +@                                                                                      X
-Step t=70000:	X                                *@                                                                                      X
-Step t=80000:	X                                ^@                                                                                      X
-Step t=90000:	X                                ^@                                                                                      X
-Step t=100000:	X                                X@                                                                                      X
-Step t=110000:	X                                X@                                                                                      X
-Step t=120000:	X                                #@                                                                                      X
-Step t=130000:	X                                #@                                                                                      X
-Step t=140000:	X                               .%@                                                                                      X
-Step t=150000:	X                               .%@                                                                                      X
-Step t=160000:	X                               .%@                                                                                      X
-Step t=170000:	X                               .@@                                                                                      X
-Step t=180000:	X                               .@@                                                                                      X
-Step t=190000:	X                               .@@                                                                                      X
-Final:		X                               -@@                                                                                      X
+Step t=10000:	X                          -+X@@@@@@@@@@@@@@@@@@@@%%##X^^**++===:::---....                                               X
+Step t=20000:	X                           -*#@@@@@@@@@@@@@@@@@@@@@@@@%%##X^^**++=::--.                                                 X
+Step t=30000:	X                           .+#@@@@@@@@@@@@@@@@@@@@@@@@%##X^^*+==:-..                                                    X
+Step t=40000:	X                           .+#@@@@@@@@@@@@@@@@@@@@@@%#XX^*+=::-.                                                        X
+Step t=50000:	X                           .+#@@@@@@@@@@@@@@@@@@@@%#X^**+=:-.                                                           X
+Step t=60000:	X                           .+#@@@@@@@@@@@@@@@@@@%#X^**+=:-.                                                             X
+Step t=70000:	X                           .+#@@@@@@@@@@@@@@@@@%#X^*+=:-.                                                               X
+Step t=80000:	X                           .+#@@@@@@@@@@@@@@@@%#X^*+=:-.                                                                X
+Step t=90000:	X                           .+#@@@@@@@@@@@@@@@@%X^*+=:-.                                                                 X
+Step t=100000:	X                           .+#@@@@@@@@@@@@@@@%#X^+=:-.                                                                  X
+Step t=110000:	X                           .+#@@@@@@@@@@@@@@@%#^*+=:.                                                                   X
+Step t=120000:	X                           .+#@@@@@@@@@@@@@@@#X^*=:-.                                                                   X
+Step t=130000:	X                           .+#@@@@@@@@@@@@@@%#X^+=:-                                                                    X
+Step t=140000:	X                           .+#@@@@@@@@@@@@@@%#X*+=:.                                                                    X
+Step t=150000:	X                           .+#@@@@@@@@@@@@@@%#^*+=-.                                                                    X
+Step t=160000:	X                           .+#@@@@@@@@@@@@@@%#^*+:-.                                                                    X
+Step t=170000:	X                           .+#@@@@@@@@@@@@@@%X^*+:-.                                                                    X
+Step t=180000:	X                           .+#@@@@@@@@@@@@@@%X^*=:-.                                                                    X
+Step t=190000:	X                           .+#@@@@@@@@@@@@@@%X^*=:-                                                                     X
+Final:		X                           .+#@@@@@@@@@@@@@@%X^*=:-                                                                     X
 Verification: FAILED
 --------------------------------------------------------------------------
 Primary job  terminated normally, but 1 process returned
@@ -38,6 +38,6 @@ a non-zero exit code. Per user-direction, the job has been aborted.
 mpiexec detected that one or more processes exited with non-zero status, thus causing
 the job to be terminated. The first process to do so was:
 
-  Process name: [[65251,1],0]
+  Process name: [[2197,1],0]
   Exit code:    1
 --------------------------------------------------------------------------

@@ -120,11 +120,11 @@ int main(int argc, char **argv) {
       }
 
       // get temperature at current position
-      value_t tc = A[i];
+      value_t tc = B[i - startIdx];
 
       // get temperatures of adjacent cells
-      value_t tl = (i == startIdx && rank > 0) ? leftNeighbour : A[i - 1];
-      value_t tr = (i == endIdx - 1 && rank < numProcs - 1) ? rightNeighbour : A[i + 1];
+      value_t tl = (i == startIdx && rank > 0) ? leftNeighbour : B[i - 1- startIdx];
+      value_t tr = (i == endIdx - 1 && rank < numProcs - 1) ? rightNeighbour : B[i + 1 - startIdx];
 
       // compute new temperature at current position
       C[i - startIdx] = tc + 0.2 * (tl + tr + (-2 * tc));
