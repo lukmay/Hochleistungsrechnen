@@ -1,3 +1,56 @@
+Total Points used for Approximation: 100 
+WTime: 0.045233 seconds
+Approximation of Pi: 3.840000
+Total Points used for Approximation: 500 
+WTime: 0.045649 seconds
+Approximation of Pi: 3.072000
+Total Points used for Approximation: 1000 
+WTime: 0.045868 seconds
+Approximation of Pi: 3.072000
+Total Points used for Approximation: 5000 
+WTime: 0.047827 seconds
+Approximation of Pi: 2.995200
+Total Points used for Approximation: 10000 
+WTime: 0.047799 seconds
+Approximation of Pi: 3.072000
+Total Points used for Approximation: 50000 
+WTime: 0.046710 seconds
+Approximation of Pi: 3.210240
+Total Points used for Approximation: 100000 
+WTime: 0.046561 seconds
+Approximation of Pi: 3.144960
+--------------------------------------------------------------------------
+A system call failed during shared memory initialization that should
+not have.  It is likely that your MPI job will now either abort or
+experience performance degradation.
+
+  Local host:  n008.intern.lcc3.intra.uibk.ac.at
+  System call: open(2) 
+  Error:       Permission denied (errno 13)
+--------------------------------------------------------------------------
+Total Points used for Approximation: 500000 
+WTime: 0.045116 seconds
+Approximation of Pi: 3.175680
+[n002.intern.lcc3.intra.uibk.ac.at:2851263] 83 more processes have sent help message help-opal-shmem-mmap.txt / sys call fail
+[n002.intern.lcc3.intra.uibk.ac.at:2851263] Set MCA parameter "orte_base_help_aggregate" to 0 to see all help / error messages
+Total Points used for Approximation: 1000000 
+WTime: 0.046715 seconds
+Approximation of Pi: 3.173376
+Total Points used for Approximation: 5000000 
+WTime: 0.050743 seconds
+Approximation of Pi: 3.140736
+Total Points used for Approximation: 10000000 
+WTime: 0.051697 seconds
+Approximation of Pi: 3.142426
+Total Points used for Approximation: 50000000 
+WTime: 0.081478 seconds
+Approximation of Pi: 3.139162
+Total Points used for Approximation: 100000000 
+WTime: 0.111963 seconds
+Approximation of Pi: 3.141516
+Total Points used for Approximation: 500000000 
+WTime: 0.328758 seconds
+Approximation of Pi: 3.140941
 Total Points used for Approximation: 1000000000 
-WTime: 0.572253 seconds
+WTime: 0.539378 seconds
 Approximation of Pi: 3.141077

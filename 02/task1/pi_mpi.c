@@ -20,6 +20,7 @@ void calculate_pi(int num_points, int rank, int numProcs) {
             points_in_circle_in_rank++;
         }
     }
+    
     // Gather results from all ranks
     MPI_Reduce(&points_in_circle_in_rank, &points_in_circle_global, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 

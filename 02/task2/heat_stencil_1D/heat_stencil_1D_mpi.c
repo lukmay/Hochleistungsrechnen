@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <mpi.h>
-#include <string>
 
 typedef double value_t;
 
@@ -46,10 +45,12 @@ int main(int argc, char **argv) {
 
   int startIdx = rank * chunkSize;
   int endIdx = startIdx + chunkSize;
-  int source_x = N / 4;
+  printf("[DEBUG] Rank: %i, ChunkSize: %i, startIdx: %i, endIdx: %i \n", rank, chunkSize, startIdx, endIdx);
 
   // create a buffer for storing temperature fields
   Vector A = createVector(N);
+
+  int source_x = N / 4;
 
   if (rank == 0) {
     
@@ -71,39 +72,51 @@ int main(int argc, char **argv) {
 
   // Distribute A to all processes
   MPI_Bcast(A, N, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+  printf("[DEBUG] Broadcasted A to every rank for computation. \n");
 
   // ---------- compute ----------
 
   // create a second buffer for the computation and initialize with A
   Vector B = createVector(chunkSize);
-  std::copy(A + startIdx, A + endIdx, B);
+  Vector C = createVector(chunkSize);
+  for (int i = startIdx; i < endIdx; i++) {
+      B[i - startIdx] = A[i]; 
+  }
   // create variables for the neighbours
-  value_t rightNeighbour;
-  value_t leftNeighbour;
+  value_t rightNeighbour = 0;
+  value_t leftNeighbour = 0;
+
 
   // for each time step ..
   for (int t = 0; t < T; t++) {
-    // send and receive boundary elements
-    if (rank > 0) {
-      MPI_Send(&B[chunkSize - 1], 1, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    // Exchange boundary values with neighboring processes
+    printf("[DEBUG] Rank %i started with timestep %i. \n", rank, t);
+    if ((rank > 0) & (rank < numProcs - 1)) {
+      printf("[DEBUG] Rank %i tries to send and receive right boundary element ... \n", rank);
+      MPI_Sendrecv(&B[0], 1, MPI_DOUBLE, rank - 1, 0, &rightNeighbour, 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+      printf("[DEBUG] Rank %i send and received right boundary element. \n", rank);
     }
-    if (rank < numProcs - 1) {
-      MPI_Send(&B[0], 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    if ((rank > 0) & (rank < numProcs - 1)) {
+      printf("[DEBUG] Rank %i tries to send and receive left boundary element ... \n", rank);
+      MPI_Sendrecv(&B[chunkSize - 1], 1, MPI_DOUBLE, rank + 1, 1, &leftNeighbour, 1, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+      printf("[DEBUG] Rank %i send and received left boundary element. \n", rank);
     }
-
-    if (rank > 0) {
-      MPI_Recv(&leftNeighbour, 1, MPI_DOUBLE, rank - 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    if (rank == 0) {
+      printf("[DEBUG] Rank %i tries to receive right boundary element ... \n", rank);
+      MPI_Sendrecv(&B[chunkSize - 1], 1, MPI_DOUBLE, rank + 1, 1, &rightNeighbour, 1, MPI_DOUBLE, rank + 1, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+      printf("[DEBUG] Rank %i sent received right boundary element and sent left one. \n", rank);
     }
-    if (rank < numProcs - 1) {
-      MPI_Recv(&rightNeighbour, 1, MPI_DOUBLE, rank + 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+    if (rank == numProcs - 1) {
+      printf("[DEBUG] Rank %i tries  to receive left boundary element ... \n", rank);
+      MPI_Sendrecv(&B[0], 1, MPI_DOUBLE, rank - 1, 0, &leftNeighbour, 1, MPI_DOUBLE, rank - 1, 1, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
+      printf("[DEBUG] Rank %i received left boundary element and sent right one. \n", rank);
     }
-
 
     // .. we propagate the temperature
     for (long long i = startIdx; i < endIdx; i++) {
       // center stays constant (the heat is still on)
       if (i == source_x) {
-        B[i - startIdx] = A[i];
+        C[i - startIdx] = A[i];
         continue;
       }
 
@@ -111,25 +124,27 @@ int main(int argc, char **argv) {
       value_t tc = A[i];
 
       // get temperatures of adjacent cells
-      value_t tl = (i != 0) ? A[i - 1] : tc;
-      value_t tr = (i != N - 1) ? A[i + 1] : tc;
+      value_t tl = (i == startIdx && rank > 0) ? leftNeighbour : A[i - 1];
+      value_t tr = (i == endIdx - 1 && rank < numProcs - 1) ? rightNeighbour : A[i + 1];
 
       // compute new temperature at current position
-      B[i - startIdx] = tc + 0.2 * (tl + tr + (-2 * tc));
+      C[i - startIdx] = tc + 0.2 * (tl + tr + (-2 * tc));
     }
 
-    // MPI_Gather(B, chunkSize, MPI_DOUBLE, A, chunkSize, MPI_DOUBLE, 0, MPI_COMM_WORLD);
+    Vector H = B;
+    B = C;
+    C = H;
 
     if (rank == 0) {
       // show intermediate step
-      if (!(t % 10000)) {
+      if (t % 100 == 0) {
         MPI_Gather(B, chunkSize, MPI_DOUBLE, A, chunkSize, MPI_DOUBLE, 0, MPI_COMM_WORLD);
 
         printf("Step t=%d:\t", t);
         printTemperature(A, N);
         printf("\n");
       }
-    }
+    }  
   }
 
   releaseVector(B);

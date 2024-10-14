@@ -1,5 +1,75 @@
+Approximation of Pi: 3.120000
+
+real	0m0.151s
+user	0m0.034s
+sys	0m0.045s
+Approximation of Pi: 3.208000
+
+real	0m0.105s
+user	0m0.032s
+sys	0m0.041s
+Approximation of Pi: 3.132000
+
+real	0m0.093s
+user	0m0.028s
+sys	0m0.046s
+Approximation of Pi: 3.172800
+
+real	0m0.093s
+user	0m0.033s
+sys	0m0.040s
+Approximation of Pi: 3.171200
+
+real	0m0.092s
+user	0m0.041s
+sys	0m0.032s
+Approximation of Pi: 3.146080
+
+real	0m0.094s
+user	0m0.033s
+sys	0m0.041s
+Approximation of Pi: 3.141520
+
+real	0m0.094s
+user	0m0.033s
+sys	0m0.043s
+Approximation of Pi: 3.139776
+
+real	0m0.106s
+user	0m0.048s
+sys	0m0.037s
+Approximation of Pi: 3.141664
+
+real	0m0.131s
+user	0m0.058s
+sys	0m0.040s
+Approximation of Pi: 3.140898
+
+real	0m0.223s
+user	0m0.150s
+sys	0m0.047s
+Approximation of Pi: 3.141130
+
+real	0m0.347s
+user	0m0.287s
+sys	0m0.040s
+Approximation of Pi: 3.141468
+
+real	0m1.337s
+user	0m1.277s
+sys	0m0.038s
+Approximation of Pi: 3.141698
+
+real	0m2.609s
+user	0m2.519s
+sys	0m0.038s
+Approximation of Pi: 3.141539
+
+real	0m12.556s
+user	0m12.448s
+sys	0m0.041s
 Approximation of Pi: 3.141604
 
-real	0m25.109s
-user	0m24.957s
-sys	0m0.043s
+real	0m25.039s
+user	0m24.914s
+sys	0m0.036s
